@@ -66,7 +66,7 @@ def quit():
     global running
     runnig = False
 
-def run(state_state):
+def run(start_state):
     global running, stack
     running = True
     stack = [start_state]

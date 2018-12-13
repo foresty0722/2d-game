@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="878ed6c7-e52f-481a-81e4-14d3693199e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../scroll/box.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../scroll/game_world.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../scroll/scroll_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/box.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/boy.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/boy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/game_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/game_world.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/scroll_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/scroll_state.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,11 +78,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/boy_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="180" selection-start-line="180" selection-end-line="189" selection-end-column="15" />
+            <state relative-caret-position="-70">
+              <caret line="166" column="54" lean-forward="true" selection-start-line="166" selection-start-column="54" selection-end-line="166" selection-end-column="54" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -87,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/game_framework.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="101">
+              <caret line="57" column="24" lean-forward="true" selection-end-line="107" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -185,9 +188,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="785" />
-    <option name="width" value="1144" />
-    <option name="height" value="800" />
+    <option name="x" value="555" />
+    <option name="y" value="3" />
+    <option name="width" value="860" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -305,7 +309,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -381,13 +385,6 @@
     <entry file="file://$PROJECT_DIR$/code/config.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/game_framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/logo_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -436,11 +433,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/boy_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="180" selection-start-line="180" selection-end-line="189" selection-end-column="15" />
+        <state relative-caret-position="-70">
+          <caret line="166" column="54" lean-forward="true" selection-start-line="166" selection-start-column="54" selection-end-line="166" selection-end-column="54" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/game_framework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="57" column="24" lean-forward="true" selection-end-line="107" selection-end-column="25" />
         </state>
       </provider>
     </entry>

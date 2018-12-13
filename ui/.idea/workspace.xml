@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23041349-5d7e-4b71-a85a-d0cc30af33fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../scroll/box.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../scroll/game_world.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../scroll/scroll_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/box.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/boy.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/boy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/game_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/game_world.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scroll/scroll_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scroll/scroll_state.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../term/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../term/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,9 +114,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="785" />
-    <option name="width" value="1144" />
-    <option name="height" value="800" />
+    <option name="x" value="555" />
+    <option name="y" value="3" />
+    <option name="width" value="860" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -193,7 +197,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />

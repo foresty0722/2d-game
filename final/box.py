@@ -10,10 +10,13 @@ import scroll_state
 import boy
 
 dir = 0
+
+floor1_image = load_image("../res/1_floor.png")
+floor2_image = load_image("../res/2_floor.png")
 class Box:
     image = None
     ID = 0
-    def __init__(self,_x,_y):
+    def __init__(self,_x,_y,_category):
         self.x,self.y = _x,_y
         self.b_dir = 0
         self.active = True
@@ -21,8 +24,11 @@ class Box:
         #Box.ID +=1
         #self.id = Box.ID
         #print("create", self.id,self.x,self.y)
-
-
+        self.image = None
+        if _category == 1:
+            self.image = floor1_image
+        elif _category == 2:
+            self.image = floor2_image
         #self.font = load_font('ENCR10B.TTF',16)
         if Box.image == None:
             Box.image = load_image('../res/box.png')
@@ -50,6 +56,17 @@ class Box:
             self.y += self.velocity * game_world.frame_time
     def handle_events(self):
         pass
+        (self.x - 25, self.y - 30, self.x + 25, self.y + 30)
     def get_bb(self,_obj):
-        if self.x - 50 < _obj.x and self.x + 50 > _obj.x and self.y - 50 < _obj.y and self.y + 50 >_obj.y:
+        if self.x-50 < _obj.x+25 and self.x + 50 > _obj.x-25 and self.y - 50 < _obj.y+30 and self.y + 50 > _obj.y-30:
+
+            if self.x+50 <= _obj.x and  box.dir == 2 and self.y+50 > _obj.y:
+                scroll_state.left_key_lock = True
+            elif self.x-50 >= _obj.x and box.dir == 1 :
+                scroll_state.right_key_lock = True
+            elif self.y-50 >= _obj.y and box.dir == 3 :
+                scroll_state.up_key_lock = True
+            elif self.y+50 <= _obj.y and box.dir == 4  :
+                scroll_state.down_key_lock = True
             return True
+        return False

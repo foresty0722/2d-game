@@ -15,6 +15,25 @@ left_key_lock = False
 right_key_lock = False
 up_key_lock = False
 down_key_lock = False
+bg =None
+
+cand = None
+
+
+class candy():
+    image = None
+    def __int__(self, sX, sY):
+        self.x = sX
+        self.y = sY
+        print("succe")
+        if candy.image == None:
+            self.image = load_image('ball.png')
+    def draw(self):
+        print("now")
+        self.image.draw(300,200)
+    def update(self):
+        pass
+
 
 def handle_events():
     global player,sword
@@ -39,9 +58,11 @@ def handle_events():
                     box.dir = 2
                     player.moving = True
                 elif e.key == SDLK_UP and up_key_lock == False:
+                    player.set_dir(3)
                     box.dir = 3
                     player.moving = True
                 elif e.key == SDLK_DOWN and down_key_lock == False:
+                    player.set_dir(4)
                     box.dir = 4
                     player.moving = True
                 if player.moving:
@@ -53,19 +74,30 @@ def handle_events():
             player.wall_touch = False
 
 
-bg =None
 
-monsters = []
 
+def init():
+    global player,boxs, cand
+    player = boy.Boy()
+    cand = candy(1,2)
+
+    color = 0
+    for i in range(8):
+        for j in range(16):
+            if i == 0: color = 1
+            if i == 1: color = 2
+            temp = box.Box( ((j*1.099999)*95-570)  ,  (i*1.099999) * 95-570,color)
+            boxs.append(temp)
 def enter():
     init()
 
 
 
 def draw():
-    global boy
+    global boy,cand
     clear_canvas()
 
+    cand.draw()
     for i in boxs:
         i.draw()
     player.draw()
@@ -98,15 +130,14 @@ def isCollider():
         b.active = False
 player = None
 boxs = []
-def init():
-    global player,boxs
-    player = boy.Boy()
-    for i in range(2):
-        for j in range(8):
-            temp = box.Box( i*95,  j * 95)
-            boxs.append(temp)
+
+
+
+
+
 def update():
-    global boy, bg, boxs,sword,player
+    global boy, bg, boxs,sword,player,cand
+
 
     player.update()
     isCollider()

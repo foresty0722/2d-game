@@ -16,15 +16,18 @@ class IdleState:
         pass
     @staticmethod
     def update(boy):
-        boy.frame = (boy.frame + 8 * game_world.ACTION_PER_TIME * game_world.frame_time) % 8
+        boy.frame = (boy.frame + 3 * game_world.ACTION_PER_TIME * game_world.frame_time) % 3
     @staticmethod
     def draw(boy):
         if boy.dir == 1:
-            boy.src_y = 200
+            boy.src_y = 96
         elif boy.dir == 2:
-            boy.src_y = 300
-
-        Boy.image.clip_draw(int(boy.frame) * 100, boy.src_y, 100, 100, boy.x,boy.y)
+            boy.src_y = 192
+        elif boy.dir == 3:
+            boy.src_y = 0
+        elif boy.dir == 4:
+            boy.src_y = 288
+        boy.image.clip_draw(96, 288, 96, 96, boy.x,boy.y)
 #        Boy.image.clip_draw(boy.fram e * 100, y, 100, 100, *boy.pos())
     def get_bb(self):
         return (self.x - 40, self.y - 40, self.x + 40, self.y + 40)
@@ -44,18 +47,21 @@ class RunState:
         #elapsed = time.time() - boy.time
        # mag = 2 if elapsed > 2.0 else 1
         # print(mag, elapsed)
-        boy.frame = (boy.frame + 8 * game_world.ACTION_PER_TIME * game_world.frame_time) % 8
+        boy.frame = (boy.frame + 3 * game_world.ACTION_PER_TIME * game_world.frame_time) % 3
 
 
     @staticmethod
     def draw(boy):
         boy.src_y = 0
         if boy.dir == 1:
-            boy.src_y = 0
+            boy.src_y = 192
         elif boy.dir == 2:
-            boy.src_y = 100
-
-        Boy.image.clip_draw(int(boy.frame) * 100, boy.src_y, 100, 100, boy.x,boy.y)
+            boy.src_y = 96
+        elif boy.dir == 3:
+            boy.src_y = 0
+        elif boy.dir == 4:
+            boy.src_y = 288
+        boy.image.clip_draw(int(boy.frame) * 96, boy.src_y, 96, 96, boy.x,boy.y)
 
 
 okay_right = False
@@ -63,7 +69,8 @@ okay_left = False
 okay_up = False
 okay_down = False
 
-
+sheet_idle = load_image('../res/sheet_idle.png')
+sheet_dig = load_image('../res/sheet_dig.png')
 class Boy:
     image = None
 
@@ -86,8 +93,7 @@ class Boy:
         self.dir = 1        #좌우
         self.dir_up_down = 0    #상하
 
-        if Boy.image == None:
-            Boy.image = load_image('../res/animation_sheet.png')
+        self.image = sheet_idle
 
     def get_bb(self):
         return (self.x - 25, self.y - 30, self.x + 25, self.y + 30)
@@ -96,16 +102,22 @@ class Boy:
        # return self.x - self.bg.x, self.y - self.bg.y
         pass
     def draw(self):
-        self.state.draw(self)
         if self.attacking:
+
             if self.dir == 1:
-                self.hand_image.clip_draw(int(self.hand_frame) * 64, 0, 64, 64, self.x - 30, self.y)
-            else : self.hand_image.clip_draw(int(self.hand_frame) * 64, 0, 64, 64, self.x + 30, self.y)
+                sheet_dig.clip_draw(int(self.hand_frame) * 96, self.src_y, 96, 96, self.x , self.y)
+            elif self.dir == 2:
+                sheet_dig.clip_draw(int(self.hand_frame) * 96, self.src_y, 96, 96, self.x , self.y)
+            elif self.dir == 3:
+                sheet_dig.clip_draw(int(self.hand_frame) * 96, self.src_y, 96, 96, self.x , self.y)
+            elif self.dir == 4:
+                sheet_dig.clip_draw(int(self.hand_frame) * 96, self.src_y, 96, 96, self.x , self.y)
+        else: self.state.draw(self)
     def update(self):
         self.state.update(self)
         if self.attacking:
-            self.hand_frame = (self.hand_frame + 4 * game_world.ACTION_PER_TIME * game_world.frame_time) % 5
-            if self.hand_frame > 4:
+            self.hand_frame = (self.hand_frame + 3 * game_world.ACTION_PER_TIME * game_world.frame_time) % 4
+            if self.hand_frame > 3:
                 self.hand_frame = 0
                 self.attacking = False
         self.collider()
@@ -116,16 +128,10 @@ class Boy:
         self.dir = _dir
     def collider(self):
         for i in scroll_state.boxs:
+            if i.active == False: continue
             if i.get_bb(self):
                 self.wall_touch = True
-                if i.x > self.x :
-                    scroll_state.right_key_lock = True
-                elif i.x < self.x:
-                    scroll_state.left_key_lock = True
-                elif i.y > self.y:
-                    scroll_state.up_key_lock = True
-                elif i.y < self.y:
-                    scroll_state.down_key_lock = True
+
                 return
 
         scroll_state.right_key_lock = False
@@ -134,9 +140,32 @@ class Boy:
         scroll_state.down_key_lock = False
     def dig(self):
         if self.dir == 1:
+            print("왼쪽")
             for i in scroll_state.boxs:
+                if i.active== False :continue
                 if i.x + 50 > self.x - 50 and i.y -50 < self.y and i.y + 50 > self.y:
                     i.active = False
+                    break;
+        elif self.dir == 2:
+            print("오른쪽")
+            for i in scroll_state.boxs:
+                if i.active == False: continue
+                if  self.x + 50  > i.x - 50and self.x < i.x-50 and i.y - 50 < self.y and i.y+ 50 > self.y:
+                    i.active = False
+                    break;
+        elif self.dir == 3:
+            print("ㅁㅁ")
+            for i in scroll_state.boxs:
+                if i.active == False: continue
+                if i.y - 50 < self.y + 50and self.y < i.y-50 and i.x - 50 < self.x and i.x + 50 > self.x:
+                    i.active = False
+                    break;
+        elif self.dir == 4:
+            for i in scroll_state.boxs:
+                if i.active == False: continue
+                if i.y + 50 > self.y - 50 and i.x - 50 < self.x and i.x + 50 > self.x:
+                    i.active = False
+                    break;
     def set_state(self, state):
         if self.state == state: return
 

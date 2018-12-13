@@ -16,27 +16,27 @@ TIME_PER_ACTION = 0.5
 ACTION_PER_TIME = 1.0/ TIME_PER_ACTION
 frame_time = 0.0
 def add_object(o, layer):
-   objects[layer].append(o)
+	objects[layer].append(o)
 def remove_object(o):
-   for i in range(len(objects)):
-      if o in objects[i]:
-         print('deleting', o)
-         objects[i].remove(o)
-         del o
+	for i in range(len(objects)):
+		if o in objects[i]:
+			print('deleting', o)
+			objects[i].remove(o)
+			del o
 def clear():
-   for o in all_objects():
-      del o
-   objects.clear()
+	for o in all_objects():
+		del o
+	objects.clear()
 def all_objects():
-   for i in range(len(objects)):
-      for o in objects[i]:
-         yield o
+	for i in range(len(objects)):
+		for o in objects[i]:
+			yield o
 def objects_at_layer(layer):
-   for o in objects[layer]:
-      yield o
+	for o in objects[layer]:
+		yield o
 def update():
-   for o in all_objects():
-      o.update()
+	for o in all_objects():
+		o.update()
 def draw():
-   for o in all_objects():
-      o.draw()
+	for o in all_objects():
+		o.draw()
